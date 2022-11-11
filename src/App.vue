@@ -1,11 +1,16 @@
 <template>
   <v-app>
-    <v-main>
-      <HelloWorld />
-    </v-main>
+    <router-view></router-view>
   </v-app>
 </template>
 
-<script setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
+<script>
+  export default {
+
+    methods: {
+      fetchData(){
+        console.log('hello')
+      }
+    },
+  }
 </script>
