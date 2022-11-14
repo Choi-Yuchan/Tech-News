@@ -1,6 +1,10 @@
 <template>
-  <h1 class="text-h1">Ask</h1>
-  <div v-for="ask in askLists">{{ ask.title }}</div>
+  <div v-for="ask in askLists" :key="ask.id">
+    <a :href="ask.url">
+      {{ ask.title }}
+    </a>
+    <small>{{ ask.time_ago }} by {{ ask.user }}</small>
+  </div>
 </template>
 
 <script>

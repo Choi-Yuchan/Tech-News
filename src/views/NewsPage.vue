@@ -1,7 +1,11 @@
 <template lang="">
   <div>
-    <h1>News</h1>
-    <div v-for="news in fetchedNews">{{ news.title }}</div>
+    <p v-for="news in fetchedNews" :key="news.id">
+      <a :href="news.url">
+        {{ news.title }}
+      </a>
+      <small>{{ news.time_ago }} by {{ news.user }}</small>
+    </p>
   </div>
 </template>
 <script>
