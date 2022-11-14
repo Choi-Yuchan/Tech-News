@@ -2,14 +2,30 @@ import { createWebHistory, createRouter } from "vue-router";
 
 const routes = [
   {
-    path:'/',
-    component: () => import('@/views/MainPage.vue'),
+    path: "/",
+    redirect: "/news",
   },
-{
-  path:'/login',
-  component: () => import('@/views/LoginPage.vue')
-}
-]
+  {
+    path: "/ask",
+    component: () => import("@/views/AskPage.vue"),
+  },
+  {
+    path: "/jobs",
+    component: () => import("@/views/JobsPage.vue"),
+  },
+  {
+    path: "/news",
+    component: () => import("@/views/NewsPage.vue"),
+  },
+  {
+    path: "/item",
+    component: () => import("@/views/ItemPage.vue"),
+  },
+  {
+    path: "/user",
+    component: () => import("@/views/UserPage.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(),
