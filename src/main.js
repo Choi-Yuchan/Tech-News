@@ -5,21 +5,19 @@
  */
 
 // Components
-import App from './App.vue'
+import App from "./App.vue";
 
 // Composables
-import { createApp } from 'vue'
+import { createApp } from "vue";
 
 // Plugins
-import { registerPlugins } from '@/plugins'
-import vuetify from './plugins/vuetify'
-import router from './routes/router'
+import { registerPlugins } from "@/plugins";
+import vuetify from "./plugins/vuetify";
+import router from "./routes/router";
+import { store } from "./store";
 
-const app = createApp(App)
+const app = createApp(App);
 
-registerPlugins(app)
+registerPlugins(app);
 
-app
-  .use(vuetify)
-  .use(router)
-  .mount('#app')
+app.use(vuetify).use(router).use(store).mount("#app");

@@ -1,26 +1,17 @@
 <template>
   <h1 class="text-h1">Jobs</h1>
-  <div v-for="list in jobLists">{{ list.title }}</div>
+  <div v-for="job in fetchedJobs">{{ job.title }}</div>
 </template>
 
 <script>
-import { getJobsList } from "@/api";
+import { mapGetters } from "vuex";
+
 export default {
-  data() {
-    return {
-      jobLists: [],
-    };
+  computed: {
+    ...mapGetters(["fetchedJobs"]),
   },
   created() {
-    const fetchJobsList = async () => {
-      try {
-        const { data } = await getJobsList();
-        this.jobLists = data;
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchJobsList();
+    this.$store.dispatch("FETCH_JOBS");
   },
 };
 </script>

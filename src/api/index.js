@@ -3,6 +3,7 @@ import axios from "axios";
 const config = {
   baseUrl: import.meta.env.VITE_API_URL,
 };
+// VITE_API_URL = https://api.hnpwa.com/v0/
 
 const getNewsList = () => {
   return axios.get(`${config.baseUrl}news/1.json`);
