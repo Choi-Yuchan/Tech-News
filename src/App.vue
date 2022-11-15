@@ -1,7 +1,11 @@
 <template>
   <v-app>
     <ToolBar />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition>
+        <component :is="Component" />
+      </Transition>
+    </router-view>
     <Spinner :loading="false" />
   </v-app>
 </template>
@@ -33,12 +37,13 @@ a {
 a:hover {
   color: #318a62;
 }
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 1s;
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease;
 }
-.page-enter,
-.page-leave-to {
+
+.v-enter-from,
+.v-leave-to {
   opacity: 0;
 }
 </style>
