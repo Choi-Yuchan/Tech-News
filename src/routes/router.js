@@ -7,18 +7,21 @@ const routes = [
   },
   {
     path: "/ask",
+    name: "ask",
     component: () => import("@/views/AskPage.vue"),
   },
   {
     path: "/jobs",
+    name: "jobs",
     component: () => import("@/views/JobsPage.vue"),
   },
   {
     path: "/news",
+    name: "news",
     component: () => import("@/views/NewsPage.vue"),
   },
   {
-    path: "/item",
+    path: "/item/:id",
     component: () => import("@/views/ItemPage.vue"),
   },
   {

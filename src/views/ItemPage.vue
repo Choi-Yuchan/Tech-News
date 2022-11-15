@@ -3,7 +3,7 @@
     <div class="description">
       <h3>{{ itemInfo.title }}</h3>
       <div>
-        {{ itemInfo.time_ago }} by
+        {{ "Posted " + itemInfo.time_ago }} by
         <router-link :to="`/user/${itemInfo.user}`">
           {{ itemInfo.user }}
         </router-link>
@@ -21,7 +21,7 @@ export default {
     ...mapGetters(["itemInfo"]),
   },
   created() {
-    const itemId = this.$route.query.id;
+    const itemId = this.$route.params.id;
     this.$store.dispatch("FETCH_ITEM", itemId);
     console.log(this.$store.state.item);
   },

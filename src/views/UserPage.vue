@@ -1,13 +1,11 @@
 <template lang="">
-  <p>Name: {{ userInfo.id }}</p>
-  <p>Karma: {{ userInfo.karma }}</p>
-  <p>Created: {{ userInfo.created }}</p>
+  <UserProfile />
 </template>
 <script>
-import { mapGetters } from "vuex";
+import UserProfile from "@/components/UserProfile.vue";
 export default {
-  computed: {
-    ...mapGetters(["userInfo"]),
+  components: {
+    UserProfile,
   },
   created() {
     const userName = this.$route.params.id;
