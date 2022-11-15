@@ -22,7 +22,7 @@ const routes = [
     component: () => import("@/views/ItemPage.vue"),
   },
   {
-    path: "/user",
+    path: "/user/:id",
     component: () => import("@/views/UserPage.vue"),
   },
 ];

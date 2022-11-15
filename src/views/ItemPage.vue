@@ -1,7 +1,38 @@
 <template lang="">
-  <div></div>
+  <section>
+    <div class="description">
+      <h3>{{ itemInfo.title }}</h3>
+      <div>
+        {{ itemInfo.time_ago }} by
+        <router-link :to="`/user/${itemInfo.user}`">
+          {{ itemInfo.user }}
+        </router-link>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div v-html="itemInfo.content" />
+  </section>
 </template>
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["itemInfo"]),
+  },
+  created() {
+    const itemId = this.$route.query.id;
+    this.$store.dispatch("FETCH_ITEM", itemId);
+    console.log(this.$store.state.item);
+  },
+};
 </script>
-<style lang=""></style>
+<style scoped>
+section {
+  padding: 0.5rem;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+}
+</style>

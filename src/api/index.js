@@ -17,4 +17,11 @@ const getAskList = () => {
   return axios.get(`${config.baseUrl}ask/1.json`);
 };
 
-export { getNewsList, getJobsList, getAskList };
+const getUserInfo = (username) => {
+  return axios.get(`${config.baseUrl}user/${username}.json`);
+};
+
+const getItemInfo = (itemId) => {
+  return axios.get(`${config.baseUrl}item/${itemId}.json`);
+};
+export { getNewsList, getJobsList, getAskList, getUserInfo, getItemInfo };

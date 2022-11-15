@@ -1,7 +1,13 @@
 <template>
   <v-app>
     <ToolBar />
-    <router-view></router-view>
+    <router-view v-slot="{ Component, route }">
+      <transition name="page" mode="out-in">
+        <div :key="route.name">
+          <component :is="Component" />
+        </div>
+      </transition>
+    </router-view>
   </v-app>
 </template>
 
@@ -18,3 +24,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 1s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+</style>

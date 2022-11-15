@@ -1,4 +1,10 @@
-import { getNewsList, getJobsList, getAskList } from "@/api";
+import {
+  getNewsList,
+  getJobsList,
+  getAskList,
+  getUserInfo,
+  getItemInfo,
+} from "@/api";
 
 export default {
   FETCH_NEWS(context) {
@@ -33,5 +39,27 @@ export default {
       }
     };
     fetchAskList();
+  },
+  FETCH_USER({ commit }, username) {
+    const fetchUserInfo = async () => {
+      try {
+        const { data } = await getUserInfo(username);
+        commit("SET_USER", data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchUserInfo();
+  },
+  FETCH_ITEM({ commit }, itemId) {
+    const fetchItemInfo = async () => {
+      try {
+        const { data } = await getItemInfo(itemId);
+        commit("SET_ITEM", data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchItemInfo();
   },
 };

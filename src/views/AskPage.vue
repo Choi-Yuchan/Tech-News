@@ -1,8 +1,11 @@
 <template>
   <div v-for="ask in askLists" :key="ask.id">
-    <a :href="ask.url">
+    <!-- <a :href="ask.url">
       {{ ask.title }}
-    </a>
+    </a> -->
+    <router-link :to="ask.url">
+      {{ ask.title }}
+    </router-link>
     <small>{{ ask.time_ago }} by {{ ask.user }}</small>
   </div>
 </template>
