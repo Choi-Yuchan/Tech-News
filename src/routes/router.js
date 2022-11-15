@@ -1,4 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
+import createListView from "@/views/CreateListView";
 
 const routes = [
   {
@@ -6,19 +7,19 @@ const routes = [
     redirect: "/news",
   },
   {
+    path: "/news",
+    name: "news",
+    component: createListView("NewsPage"),
+  },
+  {
     path: "/ask",
     name: "ask",
-    component: () => import("@/views/AskPage.vue"),
+    component: createListView("AskPage"),
   },
   {
     path: "/jobs",
     name: "jobs",
-    component: () => import("@/views/JobsPage.vue"),
-  },
-  {
-    path: "/news",
-    name: "news",
-    component: () => import("@/views/NewsPage.vue"),
+    component: createListView("JobsPage"),
   },
   {
     path: "/item/:id",

@@ -5,16 +5,8 @@ const config = {
 };
 // VITE_API_URL = https://api.hnpwa.com/v0/
 
-const getNewsList = () => {
-  return axios.get(`${config.baseUrl}news/1.json`);
-};
-
-const getJobsList = () => {
-  return axios.get(`${config.baseUrl}jobs/1.json`);
-};
-
-const getAskList = () => {
-  return axios.get(`${config.baseUrl}ask/1.json`);
+const fetchList = (pageName) => {
+  return axios.get(`${config.baseUrl}${pageName}/1.json`);
 };
 
 const getUserInfo = (username) => {
@@ -24,4 +16,4 @@ const getUserInfo = (username) => {
 const getItemInfo = (itemId) => {
   return axios.get(`${config.baseUrl}item/${itemId}.json`);
 };
-export { getNewsList, getJobsList, getAskList, getUserInfo, getItemInfo };
+export { getUserInfo, getItemInfo, fetchList };
