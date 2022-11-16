@@ -1,18 +1,20 @@
 <template lang="">
-  <section>
-    <div class="description">
-      <h3>{{ itemInfo.title }}</h3>
-      <div>
-        {{ "Posted " + itemInfo.time_ago }} by
-        <router-link :to="`/user/${itemInfo.user}`">
-          {{ itemInfo.user }}
-        </router-link>
+  <div>
+    <section>
+      <div class="description">
+        <h3>{{ itemInfo.title }}</h3>
+        <div>
+          {{ "Posted " + itemInfo.time_ago }} by
+          <router-link :to="`/user/${itemInfo.user}`">
+            {{ itemInfo.user }}
+          </router-link>
+        </div>
       </div>
-    </div>
-  </section>
-  <section>
-    <div v-html="itemInfo.content" />
-  </section>
+    </section>
+    <section>
+      <div v-html="itemInfo.content" />
+    </section>
+  </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
